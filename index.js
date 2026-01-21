@@ -39,3 +39,19 @@ form.addEventListener("submit", (e) => {
     form.reset();
     toast.scrollIntoView({behavior:"smooth", block:"nearest"});
 });
+
+document.querySelectorAll('.work-card').forEach(card => {
+    card.addEventListener('click', () => {
+        const url = card.dataset.url;
+        if (url) {
+            window.open(url, '_blank');
+        }
+    });
+});
+
+// Prevent button click from triggering card click
+document.querySelectorAll('.work-cta').forEach(btn => {
+    btn.addEventListener('click', e => {
+        e.stopPropagation();
+    });
+});
