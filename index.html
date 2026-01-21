@@ -1,0 +1,789 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>OAX Tech — Websites, Automation, AI</title>
+  <meta name="description" content="OAX Tech builds modern websites, automation, and AI tools for growing businesses." />
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --fg:#0b0b0f;
+      --muted:#5d5f69;
+      --line:rgba(0,0,0,.10);
+      --soft:rgba(0,0,0,.04);
+      --card:#ffffff;
+      --ink:#0b0b0f;
+
+      --dark:#0b0b0f;
+      --dark2:#0f1117;
+      --darkLine:rgba(255,255,255,.10);
+      --darkMuted:rgba(255,255,255,.72);
+
+      --radius:22px;
+      --shadow: 0 18px 60px rgba(0,0,0,.12);
+      --shadow2: 0 30px 90px rgba(0,0,0,.18);
+
+      --max: 1140px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background: var(--bg);
+      color: var(--fg);
+      line-height:1.45;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+
+    /* NAV */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      background: rgba(255,255,255,.78);
+      backdrop-filter: blur(14px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:700; letter-spacing:-.2px;
+    }
+    .brand img{
+      width:54px; height:54px; object-fit:contain;
+      filter: grayscale(100%);
+    }
+    .nav-links{
+      display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end;
+      align-items:center;
+    }
+    .nav-links a{
+      font-size:14px;
+      color: var(--muted);
+      padding:8px 10px;
+      border-radius:999px;
+    }
+    .nav-links a:hover{background:var(--soft); color:var(--fg)}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      border-radius:999px;
+      padding:10px 14px;
+      font-weight:600;
+      font-size:14px;
+      border:1px solid var(--line);
+      background:#fff;
+      transition: transform .08s ease, background .2s ease, border-color .2s ease;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn:hover{background:var(--soft)}
+    .btn:active{transform:translateY(1px)}
+    .btn.dark{
+      background: var(--dark);
+      color:#fff;
+      border-color: transparent;
+    }
+    .btn.dark:hover{filter:brightness(1.06)}
+    .btn.ghost{
+      background: transparent;
+    }
+
+    /* HERO */
+    .hero{
+      padding:62px 0 24px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr}
+    }
+
+    .hero-copy{
+      border-radius: var(--radius);
+      padding:44px 36px;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .kicker{
+      display:inline-block;
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color: var(--muted);
+      margin-bottom:12px;
+    }
+    h1{
+      margin:0 0 10px;
+      font-size: clamp(36px, 4.4vw, 58px);
+      letter-spacing:-1.1px;
+      line-height:1.05;
+    }
+    .sub{
+      margin:0;
+      color: var(--muted);
+      font-size:16.5px;
+      max-width: 65ch;
+    }
+    .hero-ctas{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
+    .mini{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top:18px;
+    }
+    .pill{
+      font-size:13px;
+      color: var(--muted);
+      border:1px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
+      padding:8px 10px;
+    }
+
+    .hero-media{
+      border-radius: var(--radius);
+      overflow:hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow2);
+      min-height: 360px;
+      background:
+              linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.15)),
+              url("assets/hero.jpg");
+      background-size: cover;
+      background-position: center;
+      position:relative;
+    }
+    .hero-media::after{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(800px 260px at 20% 30%, rgba(255,255,255,.08), transparent 60%);
+      pointer-events:none;
+    }
+    .hero-badge{
+      position:absolute;
+      left:18px; bottom:18px;
+      background: rgba(255,255,255,.88);
+      border:1px solid rgba(255,255,255,.55);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding:12px 14px;
+      max-width: 520px;
+    }
+    .hero-badge b{display:block; font-size:14px}
+    .hero-badge span{display:block; font-size:13px; color:var(--muted); margin-top:2px}
+
+    /* SECTION */
+    section{padding:42px 0}
+    .section-head{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
+      margin-bottom:14px;
+    }
+    h2{
+      margin:0;
+      font-size: clamp(22px, 2.7vw, 32px);
+      letter-spacing:-.6px;
+    }
+    .lead{margin:0; color:var(--muted); max-width: 80ch}
+
+    /* TILES (Apple-ish) */
+    .tiles{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    @media (max-width: 980px){
+      .tiles{grid-template-columns:1fr}
+    }
+    .tile{
+      border-radius: var(--radius);
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#fff;
+      box-shadow: var(--shadow);
+      position:relative;
+      min-height: 320px;
+      display:flex;
+      align-items:flex-end;
+    }
+    .tile.bg{
+      background-size: cover;
+      background-position: center;
+    }
+    .tile::before{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.55));
+    }
+    .tile.light::before{
+      background: linear-gradient(180deg, rgba(255,255,255,.70), rgba(255,255,255,.96));
+    }
+    .tile-content{
+      position:relative;
+      padding:24px;
+      width:100%;
+      color:#fff;
+    }
+    .tile.light .tile-content{color: var(--fg)}
+    .tile-title{
+      font-size:26px;
+      letter-spacing:-.6px;
+      margin:0 0 6px;
+      line-height:1.12;
+    }
+    .tile-desc{
+      margin:0;
+      color: rgba(255,255,255,.82);
+      max-width: 60ch;
+    }
+    .tile.light .tile-desc{color: var(--muted)}
+    .tile-actions{margin-top:14px; display:flex; gap:10px; flex-wrap:wrap}
+
+    /* SERVICES STRIP */
+    .strip{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:12px;
+      margin-top:14px;
+    }
+    @media (max-width: 980px){
+      .strip{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 560px){
+      .strip{grid-template-columns:1fr}
+    }
+    .strip-card{
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius: 18px;
+      padding:16px;
+    }
+    .strip-card b{display:block; font-size:14px}
+    .strip-card span{display:block; font-size:13px; color:var(--muted); margin-top:4px}
+
+    /* DARK PRICING */
+    .dark-band{
+      background: linear-gradient(180deg, var(--dark), var(--dark2));
+      color:#fff;
+      padding:56px 0;
+      border-top: 1px solid rgba(255,255,255,.06);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .pricing{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+      margin-top:18px;
+    }
+    @media (max-width: 980px){
+      .pricing{grid-template-columns:1fr}
+    }
+    .p-card{
+      border: 1px solid var(--darkLine);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--radius);
+      padding:22px;
+      box-shadow: 0 20px 70px rgba(0,0,0,.35);
+    }
+    .p-card.featured{
+      background: rgba(255,255,255,.07);
+      border-color: rgba(255,255,255,.18);
+      transform: translateY(-4px);
+    }
+    .tag{
+      display:inline-flex;
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color: var(--darkMuted);
+      border:1px solid var(--darkLine);
+      border-radius:999px;
+      padding:7px 10px;
+    }
+    .price{
+      font-size:36px;
+      letter-spacing:-.8px;
+      margin:10px 0 2px;
+    }
+    .per{color: var(--darkMuted); font-size:13px; margin:0 0 12px}
+    .p-list{margin:0; padding-left:18px; color: var(--darkMuted)}
+    .p-list li{margin:9px 0}
+    .p-actions{margin-top:16px; display:flex; gap:10px; flex-wrap:wrap}
+    .btn.light{
+      background:#fff;
+      border-color: transparent;
+      color: #0b0b0f;
+    }
+
+    /* WORK */
+    .work{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+      margin-top:14px;
+    }
+    @media (max-width: 980px){
+      .work{grid-template-columns:1fr}
+    }
+    .work-card{
+      border-radius: var(--radius);
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#fff;
+      box-shadow: var(--shadow);
+    }
+    .work-img{
+      height:190px;
+      background: #eee;
+      background-size: cover;
+      background-position: center;
+    }
+    .work-body{padding:16px}
+    .work-body b{display:block; font-size:15px}
+    .work-body span{display:block; margin-top:6px; font-size:13px; color:var(--muted)}
+    .work-body a{
+      display:inline-block;
+      margin-top:12px;
+      font-size:13px;
+      color: var(--fg);
+      border-bottom:1px solid var(--line);
+      padding-bottom:2px;
+    }
+
+    /* CONSULTATION */
+    .consult{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      margin-top:14px;
+    }
+    @media (max-width: 980px){
+      .consult{grid-template-columns:1fr}
+    }
+    .card{
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius: var(--radius);
+      padding:22px;
+      box-shadow: var(--shadow);
+    }
+    label{
+      display:block;
+      font-size:13px;
+      color: var(--muted);
+      margin-bottom:6px;
+    }
+    input,select,textarea{
+      width:100%;
+      border-radius: 16px;
+      border:1px solid var(--line);
+      background:#fff;
+      padding:12px 12px;
+      font-size:14px;
+      outline:none;
+    }
+    input:focus,select:focus,textarea:focus{
+      border-color: rgba(0,0,0,.35);
+      box-shadow: 0 0 0 4px rgba(0,0,0,.06);
+    }
+    textarea{min-height:120px; resize:vertical}
+    .row{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    @media (max-width: 560px){
+      .row{grid-template-columns:1fr}
+    }
+    .note{
+      font-size:13px;
+      color: var(--muted);
+      background: var(--soft);
+      border:1px solid var(--line);
+      padding:12px 12px;
+      border-radius: 16px;
+      margin-top:12px;
+    }
+    .toast{
+      display:none;
+      border-radius: 16px;
+      padding:12px 12px;
+      border:1px solid rgba(0,0,0,.18);
+      background: rgba(0,0,0,.04);
+      color: var(--fg);
+      margin-bottom:12px;
+      font-size:14px;
+    }
+    .toast.show{display:block}
+
+    /* FOOTER */
+    footer{
+      padding:40px 0;
+      border-top:1px solid var(--line);
+      color: var(--muted);
+      margin-top:20px;
+    }
+    .foot{
+      display:flex; align-items:center; justify-content:space-between;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+    .small{font-size:13px}
+  </style>
+</head>
+
+<body>
+<!-- NAV -->
+<div class="nav">
+  <div class="wrap nav-inner">
+    <div class="brand">
+      <img src="./assets/oax-tech-logo.png" alt="OAX Tech logo" />
+      <span>OAX Tech</span>
+    </div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#work">Work</a>
+      <a href="#consultation">Book</a>
+      <a class="btn dark" href="#consultation">Get Started</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="kicker">Websites • Automation • AI</div>
+      <h1>Smarter systems, better results.</h1>
+      <p class="sub">
+        OAX Tech is a software startup that helps businesses modernize their digital presence and operations. We build clean, high-performance websites, AI chatbots, and custom software designed to improve efficiency, streamline workflows, and enhance customer engagement. Our focus is on making modern technology practical, scalable, and easy to use for growing businesses.
+      </p>
+      <div class="hero-ctas">
+        <a class="btn dark" href="#consultation">Book a consultation</a>
+        <a class="btn ghost" href="#pricing">View pricing</a>
+      </div>
+      <div class="mini">
+        <span class="pill">Mobile-first</span>
+        <span class="pill">Fast delivery</span>
+        <span class="pill">SEO-ready</span>
+        <span class="pill">Lead capture + forms</span>
+      </div>
+    </div>
+
+    <div class="hero-media" aria-label="Hero image">
+      <div class="hero-badge">
+        <b>Simple process. High-end result.</b>
+        <span>Call → design → build → launch. No confusing back-and-forth.</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- SERVICES / TILES -->
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <h2>Built for businesses that want a clean, premium look.</h2>
+        <p class="lead">Apple-style layout, strong typography, and sections designed to convert.</p>
+      </div>
+    </div>
+
+    <div class="tiles">
+      <div class="tile bg" style="background-image:url('assets/tile-1.jpg')">
+        <div class="tile-content">
+          <h3 class="tile-title">Web Design & Development</h3>
+          <p class="tile-desc">Fast, modern sites that look professional on day one.</p>
+          <div class="tile-actions">
+            <a class="btn light" href="#pricing">See packages</a>
+            <a class="btn ghost" style="border-color:rgba(255,255,255,.25); color:#fff" href="#consultation">Book</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="tile bg" style="background-image:url('assets/tile-2.jpg')">
+        <div class="tile-content">
+          <h3 class="tile-title">Automation</h3>
+          <p class="tile-desc">Turn “forms + follow-ups” into a system: intake → email → Sheets/CRM.</p>
+          <div class="tile-actions">
+            <a class="btn dark" href="#consultation">Talk to us</a>
+            <a class="btn ghost" href="#work">View examples</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="tile bg" style="background-image:url('assets/tile-3.jpg'); grid-column:1 / -1;">
+        <div class="tile-content">
+          <h3 class="tile-title">AI Chatbots & Smart FAQ</h3>
+          <p class="tile-desc">Reduce repetitive questions and capture leads with a clean assistant on your site.</p>
+          <div class="tile-actions">
+            <a class="btn dark" href="#consultation" data-pick="Pro">Add chatbot</a>
+            <a class="btn ghost" href="#pricing">Pricing</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="strip">
+      <div class="strip-card"><b>Modern UI</b><span>Minimal, clean, professional</span></div>
+      <div class="strip-card"><b>Performance</b><span>Fast load, optimized images</span></div>
+      <div class="strip-card"><b>SEO Basics</b><span>Metadata + structure ready</span></div>
+      <div class="strip-card"><b>Lead Capture</b><span>Forms that actually convert</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING (DARK) -->
+<section class="dark-band" id="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <h2>Pricing</h2>
+        <p class="lead" style="color:rgba(255,255,255,.72)">
+          Straightforward packages — custom quotes for advanced builds.
+        </p>
+      </div>
+    </div>
+
+    <div class="pricing">
+      <div class="p-card">
+        <div class="tag">Starter</div>
+        <div class="price">$399</div>
+        <p class="per">One-page landing (fast launch)</p>
+        <ul class="p-list">
+          <li>Clean premium layout</li>
+          <li>Mobile-first</li>
+          <li>Lead capture form</li>
+          <li>Basic SEO setup</li>
+          <li>Deploy to your domain</li>
+        </ul>
+        <div class="p-actions">
+          <a class="btn light" href="#consultation" data-pick="Starter">Choose Starter</a>
+          <a class="btn ghost" style="border-color:rgba(255,255,255,.16); color:#fff" href="#consultation">Ask a question</a>
+        </div>
+      </div>
+
+      <div class="p-card featured">
+        <div class="tag">Growth</div>
+        <div class="price">$899</div>
+        <p class="per">Best for service businesses</p>
+        <ul class="p-list">
+          <li>Up to 5 pages</li>
+          <li>Copy polish + structure</li>
+          <li>Booking / intake form</li>
+          <li>Analytics setup</li>
+          <li>One revision round</li>
+        </ul>
+        <div class="p-actions">
+          <a class="btn light" href="#consultation" data-pick="Growth">Choose Growth</a>
+          <a class="btn ghost" style="border-color:rgba(255,255,255,.16); color:#fff" href="#work">See work</a>
+        </div>
+      </div>
+
+      <div class="p-card">
+        <div class="tag">Pro</div>
+        <div class="price">$1,799+</div>
+        <p class="per">Custom + automation + AI options</p>
+        <ul class="p-list">
+          <li>Custom UI and flows</li>
+          <li>Automation integrations</li>
+          <li>AI chatbot add-on</li>
+          <li>Performance tuning</li>
+          <li>Support plans available</li>
+        </ul>
+        <div class="p-actions">
+          <a class="btn light" href="#consultation" data-pick="Pro">Choose Pro</a>
+          <a class="btn ghost" style="border-color:rgba(255,255,255,.16); color:#fff" href="#consultation">Custom quote</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="small" style="margin-top:14px; color:rgba(255,255,255,.62)">
+      Add-ons: chatbot, automation, branding, monthly maintenance. Final pricing depends on scope.
+    </p>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <h2>Featured work</h2>
+        <p class="lead">Replace these placeholders with your real client projects as you land them.</p>
+      </div>
+    </div>
+
+    <div class="work">
+      <div class="work-card">
+        <div class="work-img" style="background-image:url('assets/work-1.jpg')"></div>
+        <div class="work-body">
+          <b>Client Project #1</b>
+          <span>High-converting landing page + lead form.</span>
+          <a href="#consultation">Build something like this →</a>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-img" style="background-image:url('assets/work-2.jpg')"></div>
+        <div class="work-body">
+          <b>Client Project #2</b>
+          <span>Multi-page business site with booking flow.</span>
+          <a href="#consultation">Get a quote →</a>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-img" style="background-image:url('assets/work-3.jpg')"></div>
+        <div class="work-body">
+          <b>Client Project #3</b>
+          <span>Automation: form → email → Google Sheets/CRM.</span>
+          <a href="#consultation">Automate my intake →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONSULTATION -->
+<section id="consultation">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <h2>Book a consultation</h2>
+        <p class="lead">Leave your email or phone, pick a package, and tell us what you want built.</p>
+      </div>
+    </div>
+
+    <div class="consult">
+      <div class="card">
+        <div id="toast" class="toast"> Request received. Next step: we’ll message you with a plan + timeline.</div>
+
+        <form id="consultForm">
+          <div class="row">
+            <div>
+              <label for="name">Full name</label>
+              <input id="name" name="name" placeholder="Your name" required />
+            </div>
+            <div>
+              <label for="company">Business name (optional)</label>
+              <input id="company" name="company" placeholder="Company / brand" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="contact">Email or phone</label>
+              <input id="contact" name="contact" placeholder="example@email.com or 403-xxx-xxxx" required />
+            </div>
+            <div>
+              <label for="package">Package interest</label>
+              <select id="package" name="package" required>
+                <option value="" selected disabled>Select a package</option>
+                <option>Starter</option>
+                <option>Growth</option>
+                <option>Pro</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="details">Brief description</label>
+            <textarea id="details" name="details" placeholder="What do you want built? Any features like booking, gallery, payments, chatbot, automation, etc.?" required></textarea>
+          </div>
+
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:4px">
+            <button class="btn dark" type="submit">Submit request</button>
+            <a class="btn" href="#pricing">Review pricing</a>
+          </div>
+
+          <div class="note">
+            Want it to feel “Apple clean”? Mention your preferred vibe + 2 websites you like.
+          </div>
+        </form>
+      </div>
+
+      <div class="card">
+        <h3 style="margin:0 0 10px; letter-spacing:-.4px">What happens next</h3>
+        <p class="lead" style="margin:0 0 14px">
+          We respond with a quick plan, timeline, and what we need from you (logo, business info, photos).
+        </p>
+        <div class="note">
+          <b>Deliverables:</b> live website + editable content + basic documentation.
+          Maintenance and updates available.
+        </div>
+        <div class="note">
+          <b>Tip:</b> If you already have a domain, include it in your message.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div class="brand">
+      <img src="assets/oax-logo.png" alt="OAX Tech logo" />
+      <span>OAX Tech</span>
+    </div>
+    <div class="small">© <span id="year"></span> OAX Tech. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  // year
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // smooth scroll (basic)
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener("click", (e) => {
+      const id = a.getAttribute("href");
+      if (!id || id === "#") return;
+      const el = document.querySelector(id);
+      if (!el) return;
+      e.preventDefault();
+      el.scrollIntoView({behavior:"smooth", block:"start"});
+    });
+  });
+
+  // preselect package from buttons
+  document.querySelectorAll("[data-pick]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const pick = btn.getAttribute("data-pick");
+      const pkg = document.getElementById("package");
+      if (pkg) pkg.value = pick;
+    });
+  });
+
+  // form submit (front-end only demo)
+  const form = document.getElementById("consultForm");
+  const toast = document.getElementById("toast");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const name = form.name.value.trim();
+    const contact = form.contact.value.trim();
+    const pkg = form.package.value.trim();
+    const details = form.details.value.trim();
+
+    if (!name || !contact || !pkg || !details) return;
+
+    toast.classList.add("show");
+    form.reset();
+    toast.scrollIntoView({behavior:"smooth", block:"nearest"});
+  });
+</script>
+</body>
+</html>
