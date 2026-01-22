@@ -22,23 +22,6 @@ document.querySelectorAll("[data-pick]").forEach(btn => {
 });
 
 // form submit (front-end only demo)
-const form = document.getElementById("consultForm");
-const toast = document.getElementById("toast");
-
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const name = form.name.value.trim();
-    const contact = form.contact.value.trim();
-    const pkg = form.package.value.trim();
-    const details = form.details.value.trim();
-
-    if (!name || !contact || !pkg || !details) return;
-
-    toast.classList.add("show");
-    form.reset();
-    toast.scrollIntoView({behavior:"smooth", block:"nearest"});
-});
 
 document.querySelectorAll('.work-card').forEach(card => {
     card.addEventListener('click', () => {
@@ -54,4 +37,57 @@ document.querySelectorAll('.work-cta').forEach(btn => {
     btn.addEventListener('click', e => {
         e.stopPropagation();
     });
+});
+
+// google sheets implementation
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwu460vS5PMkR0YaSa0cmyAnrkY0qepWrguqea_96Bx8HjvgCdUj25S6B41jAmf-t1d/exec";
+
+const form = document.getElementById("consultForm");
+const toast = document.getElementById("toast");
+
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    // Validate using actual form values (NOT payload.name)
+    const name = form.name.value.trim();
+    const company = form.company.value.trim();
+    const contact = form.contact.value.trim();
+    const pkg = form.package.value.trim();
+    const details = form.details.value.trim();
+
+    if (!name || !contact || !pkg || !details) {
+        console.log("Missing fields");
+        return;
+    }
+
+    const btn = form.querySelector('button[type="submit"]');
+
+    try {
+        btn.disabled = true;
+        btn.textContent = "Submitting...";
+
+        const payload = new FormData();
+        payload.append("name", name);
+        payload.append("company", company);
+        payload.append("contact", contact);
+        payload.append("package", pkg);
+        payload.append("details", details);
+
+        await fetch(SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            body: payload
+        });
+
+        // no-cors hides response, so assume success if fetch didn't throw
+        toast.classList.add("show");
+        form.reset();
+
+    } catch (err) {
+        console.error("Submit error:", err);
+        alert("Submit failed — check console.");
+    } finally {
+        btn.disabled = false;
+        btn.textContent = "Submit request";
+    }
 });
