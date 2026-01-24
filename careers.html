@@ -2,9 +2,311 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>careers</title>
+    <link rel="stylesheet" href="./css/index.css" >
+    <link rel="stylesheet" href="./css/careers.css" >
 </head>
 <body>
+<div class="nav">
+    <div class="wrap nav-inner">
+        <div class="brand">
+            <img src="./assets/oax-tech-logo.png" alt="OAX Tech logo" />
+            <span>OAX Tech</span>
+        </div>
+        <div class="nav-links">
+            <a href="./careers.html">Careers</a>
+            <a href="./support.html">Support us</a>
+            <a class="btn dark" href="./index.html">Main page</a>
+        </div>
+    </div>
+</div>
+<!-- Hero -->
+<header class="hero">
+    <video class="hero-video" autoplay muted loop playsinline>
+        <source src="./assets/hero.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="wrap">
+        <div class="hero-grid">
+            <div>
+                <div class="kicker">Careers</div>
+                <h1>Build products people rely on.</h1>
+                <p class="lead">
+                    We’re a small team shipping real solutions for real clients. If you like ownership,
+                    fast learning, and high standards, you’ll fit right in.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn primary" href="#roles">See open positions</a>
+                    <a class="btn" href="#culture">Our culture</a>
+                </div>
+            </div>
 
+            <div class="hero-card">
+                <div>
+                    <div class="pill">What you can expect</div>
+                    <div class="stat">
+                        <div class="stat-box">
+                            <strong>High ownership</strong>
+                            <span>Small team, big impact</span>
+                        </div>
+                        <div class="stat-box">
+                            <strong>Flexible work</strong>
+                            <span>Remote-friendly options</span>
+                        </div>
+                        <div class="stat-box">
+                            <strong>Fast growth</strong>
+                            <span>Mentorship + learning</span>
+                        </div>
+                        <div class="stat-box">
+                            <strong>Strong standards</strong>
+                            <span>Quality over hype</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top:14px; color:var(--muted); font-weight:650; font-size:13px;">
+                    Tip: keep this content real, specific, and short—like a recruiter landing page.
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Why work here -->
+<section>
+    <div class="wrap">
+        <div class="section-title">
+            <div>
+                <h2>Why work with us</h2>
+                <p>Four reasons people enjoy building here.</p>
+            </div>
+        </div>
+
+        <div class="grid-4">
+            <div class="card">
+                <div class="icon"></div>
+                <h3>Growth</h3>
+                <p>Mentorship, feedback, and space to level up quickly.</p>
+                {emphasize career growth}
+            </div>
+            <div class="card">
+                <div class="icon"></div>
+                <h3>Real impact</h3>
+                <p>You ship features clients actually use, not fake projects.</p>
+                {what will they do}
+            </div>
+            <div class="card">
+                <div class="icon"></div>
+                <h3>Team culture</h3>
+                <p>Respectful communication, clean handoffs, no ego.</p>
+                {what are our key values, why should they join us}
+            </div>
+            <div class="card">
+                <div class="icon"></div>
+                <h3>Quality</h3>
+                <p>Good docs, testing, and systems that don’t break on users.</p>
+                {what we expect and what we give to clients}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Culture -->
+<section id="culture" style="padding-top:0;">
+    <div class="wrap">
+        <div class="section-title">
+            <div>
+                <h2>Culture & values</h2>
+                <p>How we work day-to-day (and what we don’t compromise on).</p>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div class="card" style="min-height:240px;">
+                <h3>How we operate</h3>
+                <p>
+                    We’re builders. We care about reliability, clean execution, and doing what we said we’d do.
+                    We move fast, but we don’t ship messy.
+                </p>
+                <div class="meta" style="margin-top:14px;">
+                    <span class="pill">Ownership</span>
+                    <span class="pill">Transparency</span>
+                    <span class="pill">High standards</span>
+                    <span class="pill">Respect</span>
+                </div>
+            </div>
+
+            <div class="card" style="min-height:240px;">
+                <h3>What we look for</h3>
+                <p>
+                    People who communicate clearly, take initiative, and care about the details.
+                    If you like learning and taking responsibility, you’ll do well here.
+                </p>
+                <ul style="margin:14px 0 0; padding-left:18px; color:var(--muted); font-weight:650;">
+                    <li>Strong fundamentals</li>
+                    <li>Good documentation habits</li>
+                    <li>Comfortable shipping + iterating</li>
+                    <li>Respectful collaboration</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Open roles -->
+<section id="roles">
+    <div class="wrap">
+        <div class="section-title">
+            <div>
+                <h2>Open positions</h2>
+                <p>Filter roles by team, location, and type.</p>
+            </div>
+        </div>
+
+        <div class="filters">
+            <div class="select" aria-label="Department filter">
+                <span style="color:var(--muted); font-weight:800;">Team</span>
+                <select>
+                    <option>All teams</option>
+                    <option>Engineering</option>
+                    <option>Design</option>
+                    <option>Product</option>
+                    <option>Sales</option>
+                </select>
+            </div>
+
+            <div class="select" aria-label="Location filter">
+                <span style="color:var(--muted); font-weight:800;">Location</span>
+                <select>
+                    <option>All locations</option>
+                    <option>Remote</option>
+                    <option>Calgary, AB</option>
+                    <option>Edmonton, AB</option>
+                </select>
+            </div>
+
+            <div class="select" aria-label="Type filter">
+                <span style="color:var(--muted); font-weight:800;">Type</span>
+                <select>
+                    <option>All types</option>
+                    <option>Full-time</option>
+                    <option>Part-time</option>
+                    <option>Internship</option>
+                    <option>Contract</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="roles">
+            <!-- Role card -->
+            <div class="card role">
+                <div class="role-top">
+                    <div>
+                        <h3>Software Engineer (Intern)</h3>
+                        <div class="meta" style="margin-top:8px;">
+                            <span class="pill">Engineering</span>
+                            <span class="pill">Remote</span>
+                            <span class="pill">Internship</span>
+                        </div>
+                    </div>
+                    <span class="pill">New</span>
+                </div>
+
+                <p>
+                    Build and ship features across our stack. You’ll work with real users and get strong mentorship.
+                </p>
+
+                <div class="role-actions">
+                    <a class="btn primary" href="#">View role</a>
+                    <a class="btn link" href="#">Share</a>
+                </div>
+            </div>
+
+            <!-- Role card -->
+            <div class="card role">
+                <div class="role-top">
+                    <div>
+                        <h3>UI/UX Designer</h3>
+                        <div class="meta" style="margin-top:8px;">
+                            <span class="pill">Design</span>
+                            <span class="pill">Calgary, AB</span>
+                            <span class="pill">Contract</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p>
+                    Turn rough ideas into clean interfaces. Strong taste, clarity, and collaboration matter most.
+                </p>
+
+                <div class="role-actions">
+                    <a class="btn primary" href="#">View role</a>
+                    <a class="btn link" href="#">Share</a>
+                </div>
+            </div>
+
+            <!-- Role card -->
+            <div class="card role">
+                <div class="role-top">
+                    <div>
+                        <h3>Business Development</h3>
+                        <div class="meta" style="margin-top:8px;">
+                            <span class="pill">Sales</span>
+                            <span class="pill">Remote</span>
+                            <span class="pill">Part-time</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p>
+                    Help grow our client base. You’ll handle outreach, calls, and proposals with a clear process.
+                </p>
+
+                <div class="role-actions">
+                    <a class="btn primary" href="#">View role</a>
+                    <a class="btn link" href="#">Share</a>
+                </div>
+            </div>
+
+            <!-- Role card -->
+            <div class="card role">
+                <div class="role-top">
+                    <div>
+                        <h3>General Application</h3>
+                        <div class="meta" style="margin-top:8px;">
+                            <span class="pill">Any team</span>
+                            <span class="pill">Remote</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p>
+                    Don’t see a perfect fit? Send your resume anyway and we’ll reach out if there’s a match.
+                </p>
+
+                <div class="role-actions">
+                    <a class="btn primary" href="#">Apply</a>
+                    <a class="btn link" href="#">Email us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<footer>
+    <div class="wrap foot">
+        <div class="brand">
+            <img src="./assets/oax-tech-logo.png" alt="OAX Tech logo" />
+            <span>OAX Tech</span>
+        </div>
+        <div class="small">© <span id="year"></span> OAX Tech. All rights reserved.</div>
+    </div>
+</footer>
+
+
+
+
+<script src="./index.js"></script>
 </body>
 </html>
