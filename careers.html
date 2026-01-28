@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Careers | OAX Tech</title>
+
+  <link rel="stylesheet" href="./css/index.css" />
+  <link rel="stylesheet" href="./css/careers.css" />
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<div class="nav">
+  <div class="wrap nav-inner">
+    <div class="brand">
+      <img src="./assets/oax-tech-logo.png" alt="OAX Tech logo" />
+      <span>OAX Tech</span>
+    </div>
+    <div class="nav-links">
+      <a href="./careers.html">Careers</a>
+      <a href="./support.html">Support us</a>
+      <a class="btn dark" href="./index.html">Main page</a>
+    </div>
+  </div>
+</div>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="./assets/hero.mp4" type="video/mp4" />
+  </video>
+  <div class="hero-overlay"></div>
+
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="kicker">Careers</div>
+        <h1>Build products people rely on.</h1>
+        <p class="lead">
+          We’re a small team shipping real solutions for real clients.
+          Ownership, learning, and quality matter here.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#roles">See open positions</a>
+          <a class="btn" href="#culture">Our culture</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="pill">What you can expect</div>
+        <div class="stat">
+          <div class="stat-box">
+            <strong>High ownership</strong>
+            <span>Small team, big impact</span>
+          </div>
+          <div class="stat-box">
+            <strong>Flexible work</strong>
+            <span>Remote-friendly</span>
+          </div>
+          <div class="stat-box">
+            <strong>Fast growth</strong>
+            <span>Mentorship & learning</span>
+          </div>
+          <div class="stat-box">
+            <strong>Strong standards</strong>
+            <span>Quality first</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= CULTURE ================= -->
+<section id="culture">
+  <div class="wrap">
+    <div class="section-title">
+      <h2>Culture & values</h2>
+      <p>How we work day-to-day.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>How we operate</h3>
+        <p>
+          We care about reliability, clean execution, and doing what we said
+          we’d do. We move fast — not sloppy.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>What we look for</h3>
+        <ul>
+          <li>Clear communication</li>
+          <li>Strong fundamentals</li>
+          <li>Ownership mindset</li>
+          <li>Respectful collaboration</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ROLES ================= -->
+<section id="roles">
+  <div class="wrap">
+    <div class="section-title">
+      <h2>Open positions</h2>
+      <p>Click apply to submit your application.</p>
+    </div>
+
+    <div class="roles">
+
+      <!-- Software Engineer -->
+      <div class="card role">
+        <h3>Software Engineer (Intern)</h3>
+        <p>Build and ship real features with mentorship.</p>
+        <div class="role-actions">
+          <a class="btn primary apply-btn" href="#" data-role="Software Engineer (Intern)">Apply</a>
+        </div>
+      </div>
+
+      <!-- Designer -->
+      <div class="card role">
+        <h3>UI / UX Designer</h3>
+        <p>Design clean, usable interfaces with real impact.</p>
+        <div class="role-actions">
+          <a class="btn primary apply-btn" href="#" data-role="UI/UX Designer">Apply</a>
+        </div>
+      </div>
+
+      <!-- Business -->
+      <div class="card role">
+        <h3>Business Development</h3>
+        <p>Help grow our client base and partnerships.</p>
+        <div class="role-actions">
+          <a class="btn primary apply-btn" href="#" data-role="Business Development">Apply</a>
+        </div>
+      </div>
+
+      <!-- General -->
+      <div class="card role">
+        <h3>General Application</h3>
+        <p>Don’t see a perfect fit? Apply anyway.</p>
+        <div class="role-actions">
+          <a class="btn primary apply-btn" href="#" data-role="General Application">Apply</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Live roles button -->
+    <div class="live-roles-cta">
+      <a class="btn" href="#" id="openLiveRoles">View live roles list</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap foot">
+    <div class="brand">
+      <img src="./assets/oax-tech-logo.png" alt="OAX Tech logo" />
+      <span>OAX Tech</span>
+    </div>
+    <div class="small">© <span id="year"></span> OAX Tech</div>
+  </div>
+</footer>
+
+<!-- ================= APPLY MODAL ================= -->
+<div id="applyModal" class="modal" aria-hidden="true">
+  <div class="modal-panel" role="dialog">
+
+    <div class="modal-head">
+      <h3>Apply for <span id="roleName"></span></h3>
+      <button id="closeModalBtn" class="btn">Close</button>
+    </div>
+
+    <form id="applyForm" class="modal-form">
+      <input type="hidden" id="roleInput" />
+
+      <div class="grid-2">
+        <input id="fullName" placeholder="Full name" required />
+        <input id="email" type="email" placeholder="Email" required />
+      </div>
+
+      <div class="grid-2">
+        <input id="phone" placeholder="Phone (optional)" />
+        <input id="location" placeholder="Location (optional)" />
+      </div>
+
+      <input id="portfolio" placeholder="Portfolio URL (optional)" />
+      <input id="linkedin" placeholder="LinkedIn URL (optional)" />
+
+      <!-- REAL FILE UPLOAD -->
+      <label>
+        Resume (PDF or DOCX)
+        <input id="resumeFile" type="file" accept=".pdf,.docx" required />
+      </label>
+
+      <textarea id="coverLetter" rows="4" placeholder="Cover letter (optional)"></textarea>
+
+      <div class="modal-actions">
+        <button id="submitBtn" class="btn primary" type="submit">Submit</button>
+        <span id="formStatus"></span>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ================= LIVE ROLES MODAL ================= -->
+<div id="liveRolesModal" class="modal" aria-hidden="true">
+  <div class="modal-panel" role="dialog" style="max-width: 980px;">
+
+    <div class="modal-head">
+      <h3>All openings (live)</h3>
+      <button id="closeLiveRolesBtn" class="btn">Close</button>
+    </div>
+
+    <div style="padding: 12px;">
+      <iframe
+        src="https://docs.google.com/document/d/e/2PACX-1vS1aglIJD3Alu-pjjXAhVG59_F5vtaOE5jtgJdIEP0nGb-pPbho2vlXJH1aZk71AL-zcoDteASv77In/pub?embedded=true"
+        width="100%"
+        height="650"
+        frameborder="0"
+        style="border:0; border-radius:12px;"
+        loading="lazy"
+      ></iframe>
+    </div>
+
+  </div>
+</div>
+
+
+
+<!-- ================= JS ================= -->
+<script src="./js/career.js"></script>
+
+</body>
+</html>

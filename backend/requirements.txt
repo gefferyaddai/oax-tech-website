@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+python-dotenv
+gspread
+google-auth
+google-api-python-client
+python-multipart
+email-validator
